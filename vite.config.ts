@@ -33,9 +33,9 @@ export default defineConfig((config) => {
       target: 'esnext',
     },
     plugins: [
-      remix({
-      presets: [vercelPreset()],
-    }),
+      remixVitePlugin({
+        presets: [vercelPreset()],
+      }),
       nodePolyfills({
         include: ['path', 'buffer', 'process'],
       }),

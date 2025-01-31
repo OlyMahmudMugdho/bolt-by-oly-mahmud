@@ -6,6 +6,7 @@ import { optimizeCssModules } from 'vite-plugin-optimize-css-modules';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import * as dotenv from 'dotenv';
 import { execSync } from 'child_process';
+import { vercelPreset } from '@vercel/remix/vite';
 
 dotenv.config();
 
@@ -32,6 +33,9 @@ export default defineConfig((config) => {
       target: 'esnext',
     },
     plugins: [
+      remix({
+      presets: [vercelPreset()],
+    }),
       nodePolyfills({
         include: ['path', 'buffer', 'process'],
       }),
